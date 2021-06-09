@@ -8,22 +8,30 @@
 import UIKit
 
 class MyAnswersViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Table View
+        tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
+    }
+}
+
+extension MyAnswersViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return K.titles.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.MainPageCellIdentifier, for: indexPath) as? MainTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.titleLabel.text = K.titles[indexPath.row]
+        cell.contentLabel.text = K.contents[indexPath.row]
+        
+        return cell
     }
-    */
-
 }
