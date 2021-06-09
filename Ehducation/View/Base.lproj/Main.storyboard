@@ -180,13 +180,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="second" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z62-pq-LXx">
-                                <rect key="frame" x="177" y="288" width="56" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vnz-gl-IId">
                                 <rect key="frame" x="0.0" y="130" width="428" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -231,14 +224,118 @@
                     <view key="view" contentMode="scaleToFill" id="p6u-Jx-AAo">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njv-xj-iFg">
+                                <rect key="frame" x="30" y="108" width="140" height="39.666666666666657"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyX-nQ-bfu">
+                                <rect key="frame" x="324" y="107.33333333333333" width="74" height="40.999999999999986"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" name="TextPrimaryColor"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-o0-0sN">
+                                <rect key="frame" x="30" y="168.33333333333334" width="368" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-tu-SbV">
+                                <rect key="frame" x="30" y="242.33333333333337" width="70" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAb-6a-giQ">
+                                <rect key="frame" x="30" y="292.33333333333331" width="87" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ipl-1H-42O">
+                                <rect key="frame" x="157" y="242.33333333333337" width="241" height="30"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <state key="normal" title="Grade">
+                                    <color key="titleColor" name="TextPrimaryColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="gradePressed:" destination="R9U-3w-37w" eventType="touchUpInside" id="7je-Lv-WwS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB8-UE-FkE">
+                                <rect key="frame" x="157" y="292.33333333333331" width="241" height="30"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <state key="normal" title="Subjects">
+                                    <color key="titleColor" name="TextPrimaryColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="subjectPressed:" destination="R9U-3w-37w" eventType="touchUpInside" id="igc-Rf-RCM"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Ba-as-O9Y">
+                                <rect key="frame" x="30" y="342.33333333333326" width="368" height="427.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfL-8h-Dcp">
+                                <rect key="frame" x="30" y="790" width="368" height="33"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add Images">
+                                    <color key="titleColor" name="TextPrimaryColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addImageButton:" destination="R9U-3w-37w" eventType="touchUpInside" id="abJ-Rs-WWi"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4sb-VD-jGy"/>
                         <color key="backgroundColor" name="PageBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MAb-6a-giQ" firstAttribute="top" secondItem="6Lc-tu-SbV" secondAttribute="bottom" constant="20" id="9kJ-En-v06"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="trailing" secondItem="Ipl-1H-42O" secondAttribute="trailing" constant="30" id="E6F-xw-pjX"/>
+                            <constraint firstItem="WB8-UE-FkE" firstAttribute="leading" secondItem="MAb-6a-giQ" secondAttribute="trailing" constant="40" id="GXL-X3-8OG"/>
+                            <constraint firstItem="MAb-6a-giQ" firstAttribute="leading" secondItem="4sb-VD-jGy" secondAttribute="leading" constant="30" id="I6A-vb-KlE"/>
+                            <constraint firstItem="6Ba-as-O9Y" firstAttribute="top" secondItem="MAb-6a-giQ" secondAttribute="bottom" constant="20" id="K9E-BD-vty"/>
+                            <constraint firstItem="6Lc-tu-SbV" firstAttribute="top" secondItem="NaT-o0-0sN" secondAttribute="bottom" constant="40" id="MDD-NQ-Lbh"/>
+                            <constraint firstItem="FfL-8h-Dcp" firstAttribute="leading" secondItem="4sb-VD-jGy" secondAttribute="leading" constant="30" id="RFx-L2-PzY"/>
+                            <constraint firstItem="njv-xj-iFg" firstAttribute="leading" secondItem="4sb-VD-jGy" secondAttribute="leading" constant="30" id="SQ4-B7-oja"/>
+                            <constraint firstItem="6Ba-as-O9Y" firstAttribute="leading" secondItem="4sb-VD-jGy" secondAttribute="leading" constant="30" id="V4F-Gk-Yys"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="bottom" secondItem="FfL-8h-Dcp" secondAttribute="bottom" constant="20" id="cIm-Sh-7dp"/>
+                            <constraint firstItem="wyX-nQ-bfu" firstAttribute="centerY" secondItem="njv-xj-iFg" secondAttribute="centerY" id="esb-YJ-OEU"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="trailing" secondItem="FfL-8h-Dcp" secondAttribute="trailing" constant="30" id="f4w-6A-mkG"/>
+                            <constraint firstItem="6Lc-tu-SbV" firstAttribute="leading" secondItem="4sb-VD-jGy" secondAttribute="leading" constant="30" id="fJU-KK-N5h"/>
+                            <constraint firstItem="NaT-o0-0sN" firstAttribute="top" secondItem="wyX-nQ-bfu" secondAttribute="bottom" constant="20" id="gdg-HH-ZMw"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="trailing" secondItem="6Ba-as-O9Y" secondAttribute="trailing" constant="30" id="lhq-mX-aec"/>
+                            <constraint firstItem="njv-xj-iFg" firstAttribute="top" secondItem="4sb-VD-jGy" secondAttribute="top" constant="20" id="miO-CU-rp5"/>
+                            <constraint firstItem="NaT-o0-0sN" firstAttribute="leading" secondItem="4sb-VD-jGy" secondAttribute="leading" constant="30" id="oMv-K4-TfM"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="trailing" secondItem="WB8-UE-FkE" secondAttribute="trailing" constant="30" id="pkb-o0-Z4Q"/>
+                            <constraint firstItem="Ipl-1H-42O" firstAttribute="width" secondItem="WB8-UE-FkE" secondAttribute="width" id="rQP-Pf-ReJ"/>
+                            <constraint firstItem="Ipl-1H-42O" firstAttribute="centerY" secondItem="6Lc-tu-SbV" secondAttribute="centerY" id="vHf-7X-qVe"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="trailing" secondItem="NaT-o0-0sN" secondAttribute="trailing" constant="30" id="yKd-ft-C6J"/>
+                            <constraint firstItem="4sb-VD-jGy" firstAttribute="trailing" secondItem="wyX-nQ-bfu" secondAttribute="trailing" constant="30" id="yil-uJ-Lmo"/>
+                            <constraint firstItem="WB8-UE-FkE" firstAttribute="centerY" secondItem="MAb-6a-giQ" secondAttribute="centerY" id="z6v-md-TNU"/>
+                            <constraint firstItem="FfL-8h-Dcp" firstAttribute="top" secondItem="6Ba-as-O9Y" secondAttribute="bottom" constant="20" id="zAG-tb-ohl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aop-gY-SYn"/>
+                    <connections>
+                        <outlet property="gradeButton" destination="Ipl-1H-42O" id="cGI-cy-QeU"/>
+                        <outlet property="postButton" destination="wyX-nQ-bfu" id="RUg-7e-c4u"/>
+                        <outlet property="subjectButton" destination="WB8-UE-FkE" id="IwO-Gl-JlQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0J-Ky-0Jh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-740" y="778"/>
+            <point key="canvasLocation" x="-740.18691588785043" y="777.53779697624191"/>
         </scene>
         <!--My Answers-->
         <scene sceneID="Uhr-n2-78Z">
@@ -523,6 +620,9 @@
         <namedColor name="TextSecondaryColor">
             <color red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
