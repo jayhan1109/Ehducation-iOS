@@ -37,8 +37,16 @@ class QuestionsController: UIViewController {
         subjectDropdown.anchorView = subjectButton
         subjectDropdown.dataSource = ["English", "Math", "Science"]
         
+        subjectDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
+            subjectButton.setTitle(item, for: .normal)
+        }
+        
         gradeDropdown.anchorView = gradeButton
         gradeDropdown.dataSource = ["8", "9", "10"]
+        
+        gradeDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
+            gradeButton.setTitle(item, for: .normal)
+        }
         
         // Table View
         tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
