@@ -56,6 +56,10 @@ class QuestionsController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchTextField.endEditing(true)
+    }
+    
     @IBAction func searchPressed(_ sender: UIButton) {
         print("search")
     }

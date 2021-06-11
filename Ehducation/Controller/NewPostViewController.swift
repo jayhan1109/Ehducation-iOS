@@ -9,7 +9,7 @@ import UIKit
 import DropDown
 import PhotosUI
 
-class NewPostViewController: UIViewController {
+class NewPostViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var gradeButton: UIButton!
     @IBOutlet weak var subjectButton: UIButton!
@@ -18,6 +18,8 @@ class NewPostViewController: UIViewController {
     @IBOutlet weak var imageView3: UIImageView!
     @IBOutlet weak var imageView4: UIImageView!
     @IBOutlet weak var imageView5: UIImageView!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var titleTextField: UITextField!
     
     let gradeDropdown = DropDown()
     let subjectDropdown = DropDown()
@@ -28,6 +30,8 @@ class NewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textView.delegate = self
         
         navigationController?.navigationBar.barTintColor = UIColor(named: K.Colors.pageBackgroundColor)
         
@@ -51,6 +55,11 @@ class NewPostViewController: UIViewController {
         
         imageViews = [imageView1, imageView2, imageView3, imageView4, imageView5]
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textView.endEditing(true)
+        titleTextField.endEditing(true)
     }
     
     @IBAction func gradePressed(_ sender: UIButton) {

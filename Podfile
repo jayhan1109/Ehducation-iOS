@@ -8,5 +8,6 @@ target 'Ehducation' do
   pod 'Firebase/Auth'	
   pod 'Firebase/Firestore'
   pod 'DropDown', '2.3.13'
-
+  pod 'IQKeyboardManagerSwift'
+  
 end
