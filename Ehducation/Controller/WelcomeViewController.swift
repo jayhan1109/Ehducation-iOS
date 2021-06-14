@@ -8,14 +8,17 @@
 import UIKit
 import FirebaseUI
 
-class WelcomeViewController: UIViewController, FUIAuthDelegate{
+class WelcomeViewController: UIViewController{
+    @IBOutlet weak var welcomeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    @IBAction func signInwithEmail(_ sender: UIButton) {
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        welcomeButton.layer.cornerRadius = welcomeButton.frame.height / 5
+    }
+    @IBAction func welcomePressed(_ sender: UIButton) {
         let authUI = FUIAuth.defaultAuthUI()
 
         guard authUI != nil else {
@@ -30,5 +33,15 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate{
         authViewController.modalPresentationStyle = .fullScreen
         present(authViewController, animated: true, completion: nil)
     }
-    
+
+}
+
+extension WelcomeViewController: FUIAuthDelegate{
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if error != nil {
+            return
+        }
+        
+        performSegue(withIdentifier: "goToHome", sender: self)
+    }
 }
