@@ -22,6 +22,7 @@
 		F0AA697326643E5D00C99227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AA697126643E5D00C99227 /* Main.storyboard */; };
 		F0AA697526643E5D00C99227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0AA697426643E5D00C99227 /* Assets.xcassets */; };
 		F0AA697826643E5D00C99227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AA697626643E5D00C99227 /* LaunchScreen.storyboard */; };
+		F0C94A7A2676CF1100AAF074 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C94A792676CF1100AAF074 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		F0AA697426643E5D00C99227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0AA697726643E5D00C99227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0AA697926643E5D00C99227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0C94A792676CF1100AAF074 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		F85026ADE35C1EA6D1FA77DE /* Pods_Ehducation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ehducation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 				F0800A2E2669ACF000FEAD0E /* MyAnswersViewController.swift */,
 				F0800A302669ACFC00FEAD0E /* MyPageViewController.swift */,
 				F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */,
+				F0C94A792676CF1100AAF074 /* WelcomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				F0AA696526643E5D00C99227 /* Frameworks */,
 				F0AA696626643E5D00C99227 /* Resources */,
 				1898484A6B742D671E1800F1 /* [CP] Embed Pods Frameworks */,
+				E83304D556405FBF40F3FF56 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +268,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E83304D556405FBF40F3FF56 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ehducation/Pods-Ehducation-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ehducation/Pods-Ehducation-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ehducation/Pods-Ehducation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -273,6 +294,7 @@
 			files = (
 				F0800A2D2669ACD800FEAD0E /* MyQuestionsViewController.swift in Sources */,
 				F0800A2B266986AB00FEAD0E /* Constants.swift in Sources */,
+				F0C94A7A2676CF1100AAF074 /* WelcomeViewController.swift in Sources */,
 				F0800A2F2669ACF000FEAD0E /* MyAnswersViewController.swift in Sources */,
 				F0AA697026643E5D00C99227 /* QuestionsController.swift in Sources */,
 				F0AA696C26643E5D00C99227 /* AppDelegate.swift in Sources */,
