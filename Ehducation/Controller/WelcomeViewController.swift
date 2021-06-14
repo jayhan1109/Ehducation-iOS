@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate{
         let providers: [FUIAuthProvider] = [FUIEmailAuth()]
         authUI!.providers = providers
         let authViewController = authUI!.authViewController()
-
+        authViewController.modalPresentationStyle = .fullScreen
         present(authViewController, animated: true, completion: nil)
     }
     
