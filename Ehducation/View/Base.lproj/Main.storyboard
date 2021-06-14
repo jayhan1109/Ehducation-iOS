@@ -674,6 +674,9 @@
                                 <color key="tintColor" name="TextPrimaryColor"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="Apt-US-MiS" eventType="touchUpInside" id="AaR-1w-gC6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PYq-4Q-h5s"/>
