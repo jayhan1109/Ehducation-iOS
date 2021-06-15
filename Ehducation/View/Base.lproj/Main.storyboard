@@ -287,6 +287,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" name="TextPrimaryColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="postPressed:" destination="R9U-3w-37w" eventType="touchUpInside" id="KGr-5A-iCu"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-o0-0sN">
                                 <rect key="frame" x="30" y="168.33333333333334" width="368" height="34"/>
@@ -318,7 +321,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB8-UE-FkE">
                                 <rect key="frame" x="157" y="292.33333333333331" width="241" height="30"/>
                                 <color key="backgroundColor" name="PrimaryColor"/>
-                                <state key="normal" title="Subjects">
+                                <state key="normal" title="Subject">
                                     <color key="titleColor" name="TextPrimaryColor"/>
                                 </state>
                                 <connections>

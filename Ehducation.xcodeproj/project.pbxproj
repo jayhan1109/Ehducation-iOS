@@ -11,6 +11,7 @@
 		F009CBB52679420100DBA93D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CBB42679420100DBA93D /* User.swift */; };
 		F009CBB72679449900DBA93D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CBB62679449900DBA93D /* FirebaseManager.swift */; };
 		F01B4AA42679565300EAE98A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F01B4AA32679565300EAE98A /* GoogleService-Info.plist */; };
+		F01B4AA626795F1600EAE98A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B4AA526795F1600EAE98A /* Post.swift */; };
 		F0495C1926716BBF00EF2F88 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */; };
 		F0800A2B266986AB00FEAD0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0800A2A266986AB00FEAD0E /* Constants.swift */; };
 		F0800A2D2669ACD800FEAD0E /* MyQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0800A2C2669ACD800FEAD0E /* MyQuestionsViewController.swift */; };
@@ -33,6 +34,7 @@
 		F009CBB42679420100DBA93D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F009CBB62679449900DBA93D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F01B4AA32679565300EAE98A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F01B4AA526795F1600EAE98A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		F0800A2A266986AB00FEAD0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F0800A2C2669ACD800FEAD0E /* MyQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionsViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				F009CBB42679420100DBA93D /* User.swift */,
 				F009CBB62679449900DBA93D /* FirebaseManager.swift */,
+				F01B4AA526795F1600EAE98A /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				F0800A2D2669ACD800FEAD0E /* MyQuestionsViewController.swift in Sources */,
 				F0800A2B266986AB00FEAD0E /* Constants.swift in Sources */,
 				F0C94A7A2676CF1100AAF074 /* WelcomeViewController.swift in Sources */,
+				F01B4AA626795F1600EAE98A /* Post.swift in Sources */,
 				F0800A2F2669ACF000FEAD0E /* MyAnswersViewController.swift in Sources */,
 				F0AA697026643E5D00C99227 /* QuestionsController.swift in Sources */,
 				F0AA696C26643E5D00C99227 /* AppDelegate.swift in Sources */,

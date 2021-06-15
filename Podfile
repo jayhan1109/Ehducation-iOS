@@ -11,5 +11,6 @@ target 'Ehducation' do
   pod 'IQKeyboardManagerSwift'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Email'
+  pod 'Firebase/Storage'
 
 end

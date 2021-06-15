@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 import Firebase
+import FirebaseStorage
 
 class FirebaseManager{
     static let shared = FirebaseManager()
@@ -14,6 +16,7 @@ class FirebaseManager{
     let db = Firestore.firestore()
     
     var user: User?
+    var questions: [Post] = []
     
     private init(){}
     
@@ -40,9 +43,6 @@ class FirebaseManager{
                 }
             }
         }
-        
-        print("create")
-        print(self.user)
     }
     
     func loadUser(email: String){
@@ -65,8 +65,49 @@ class FirebaseManager{
                     }
                 }
             }
+    }
+    
+    func uploadImage(images: [Data], timestamp: TimeInterval) -> String{
+        //        let storageRef = Storage.storage().reference()
+        //
+        //        for data in images{
+        //            // Create a reference to the file you want to upload
+        //            let riversRef = storageRef.child("\(user?.id)/")
+        //
+        //            // Upload the file to the path "images/rivers.jpg"
+        //            let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
+        //              guard let metadata = metadata else {
+        //                // Uh-oh, an error occurred!
+        //                return
+        //              }
+        //              // Metadata contains file metadata such as size, content-type.
+        //              let size = metadata.size
+        //              // You can also access to download URL after upload.
+        //              riversRef.downloadURL { (url, error) in
+        //                guard let downloadURL = url else {
+        //                  // Uh-oh, an error occurred!
+        //                  return
+        //                }
+        //              }
+        //            }
+        //        }
         
-        print("load")
-        print(self.user)
+        return ""
+    }
+    
+    func generateAlert(title: String, isTextField: Bool) -> UIAlertController{
+        var alert: UIAlertController?
+        
+        if isTextField {
+            alert = UIAlertController(title: "Alert", message: "\(title) is empty", preferredStyle: UIAlertController.Style.alert)
+        } else{
+            alert = UIAlertController(title: "Alert", message: "\(title) is not selected", preferredStyle: UIAlertController.Style.alert)
+        }
+        
+        
+        // add an action (button)
+        alert!.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        return alert!
     }
 }

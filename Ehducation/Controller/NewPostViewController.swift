@@ -26,7 +26,7 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
     
     var imageViews: [UIImageView] = []
     var clearViews: [UIButton] = []
-    var images: [UIImage] = []
+    var images: [Data] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,22 +71,73 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
     
     @IBAction func addImageButton(_ sender: UIButton) {
         if #available(iOS 14, *) {
-            var configuration = PHPickerConfiguration()
+            let photoLibrary = PHPhotoLibrary.shared()
+            var configuration = PHPickerConfiguration(photoLibrary: photoLibrary)
             configuration.selectionLimit = 5
             configuration.filter = .any(of: [.images, .videos])
             
             let picker = PHPickerViewController(configuration: configuration)
             picker.delegate = self
             self.present(picker, animated: true, completion: nil)
-            
-            print(images.count)
         } else {
             // Fallback on earlier versions
         }
     }
     
-
+    @IBAction func postPressed(_ sender: UIButton) {
+        // Check if title, grade, subject, text are not empty
+        if hasEmptyField() {
+            return
+        }
+        
+        print("All Good")
+        
+//        let timestamp = Date().timeIntervalSince1970
+//
+//        // Upload images into firebase storage
+//        let path = FirebaseManager.shared.uploadImage(images: images, timestamp: timestamp)
+//
+//        // Create Post model instance
+//        Post(userId: FirebaseManager.shared.user!.id, timestamp: timestamp, grade: gradeButton.currentTitle!, subject: <#T##String#>, title: <#T##String#>, text: <#T##String#>, imageRef: <#T##String#>, viewCount: <#T##Int#>, answerCount: <#T##Int#>, imageCount: <#T##Int#>)
+//
+//        // Save Post instance into Firestore
+//
+//        // Return to Questions page
+//
+//        // Reload Questions page tableview data
+    }
     
+    func hasEmptyField() -> Bool{
+        if titleTextField.text == "" {
+            let alert = FirebaseManager.shared.generateAlert(title: "Title", isTextField: true)
+            self.present(alert, animated: true, completion: nil)
+            
+            return true
+        }
+        
+        if textView.text == "" {
+            let alert = FirebaseManager.shared.generateAlert(title: "Content", isTextField: true)
+            self.present(alert, animated: true, completion: nil)
+            
+            return true
+        }
+        
+        if gradeButton.currentTitle == "Grade" {
+            let alert = FirebaseManager.shared.generateAlert(title: "Grade", isTextField: false)
+            self.present(alert, animated: true, completion: nil)
+            
+            return true
+        }
+        
+        if subjectButton.currentTitle == "Subject" {
+            let alert = FirebaseManager.shared.generateAlert(title: "Title", isTextField: true)
+            self.present(alert, animated: true, completion: nil)
+            
+            return true
+        }
+        
+        return false
+    }
 }
 
 extension NewPostViewController: PHPickerViewControllerDelegate {
@@ -108,9 +159,14 @@ extension NewPostViewController: PHPickerViewControllerDelegate {
             if itemProvider.canLoadObject(ofClass: UIImage.self) {
                 itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
                     if let img = image as? UIImage{
-                        DispatchQueue.main.async {
-                            self.imageViews[idx].image = img
-                            self.images.append(img)
+                        // Store image data to images array
+                        if let pngData = img.pngData() {
+                            self.images.append(pngData)
+                            
+                            // Update UI
+                            DispatchQueue.main.async {
+                                self.imageViews[idx].image = img
+                            }
                         }
                     }
                 }
@@ -118,5 +174,6 @@ extension NewPostViewController: PHPickerViewControllerDelegate {
                 // TODO: Handle empty results or item provider not being able load UIImage
             }
         }
+        
     }
 }

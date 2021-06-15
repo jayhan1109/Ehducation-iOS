@@ -68,6 +68,7 @@ struct K {
             static let subjectField = "subject"
             static let viewCountField = "viewCount"
             static let answerCountField = "answerCount"
+            static let imageCount = "imageCount"
         }
         
         struct Answer {
