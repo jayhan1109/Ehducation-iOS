@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import Firebase
 
 class QuestionsController: UIViewController {
     @IBOutlet weak var newButton: UIButton!
@@ -15,8 +16,6 @@ class QuestionsController: UIViewController {
     @IBOutlet weak var subjectButton: UIButton!
     @IBOutlet weak var gradeButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    
-    
     
     let gradeDropdown = DropDown()
     let subjectDropdown = DropDown()

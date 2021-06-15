@@ -45,4 +45,38 @@ struct K {
         static let selectedAnswerCardColor = "SelectedAnswerCardColor"
         static let selectedAnswerMarkColor = "SelectedAnswerMarkColor"
     }
+    
+    struct FStore {
+        struct User {
+            static let collectionName = "users"
+            static let emailField = "email"
+            static let expField = "exp"
+            static let answeredField = "answered"
+            static let starredField = "starred"
+        }
+        
+        struct Post {
+            static let collectionName = "posts"
+            static let userIdField = "user_id"
+            static let titleField = "title"
+            static let textField = "text"
+            static let imageRefField = "imageRef"
+            static let timestampField = "timestamp"
+            static let gradeField = "grade"
+            static let subjectField = "subject"
+            static let viewCountField = "viewCount"
+            static let answerCountField = "answerCount"
+        }
+        
+        struct Answer {
+            static let collectionName = "answers"
+            static let userIdField = "user_id"
+            static let postIdField = "post_id"
+            static let timestampField = "timestamp"
+            static let textField = "text"
+            static let imageRefField = "imageRef"
+            static let voteField = "vote"
+            static let starredField = "starred"
+        }
+    }
 }

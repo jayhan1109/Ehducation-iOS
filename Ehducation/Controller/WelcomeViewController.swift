@@ -42,6 +42,17 @@ extension WelcomeViewController: FUIAuthDelegate{
             return
         }
         
+        // Check if the user is new
+        if let user = authDataResult?.user{
+            
+            // Create User data and save into firebase
+            print(user.email)
+            print(user.uid)
+            print(authDataResult?.additionalUserInfo?.isNewUser)
+        } else{
+            // load user data
+        }
+        
         performSegue(withIdentifier: "goToHome", sender: self)
     }
 }
