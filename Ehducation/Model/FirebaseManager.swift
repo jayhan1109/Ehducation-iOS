@@ -67,32 +67,58 @@ class FirebaseManager{
             }
     }
     
-    func uploadImage(images: [Data], timestamp: TimeInterval) -> String{
-        //        let storageRef = Storage.storage().reference()
-        //
-        //        for data in images{
-        //            // Create a reference to the file you want to upload
-        //            let riversRef = storageRef.child("\(user?.id)/")
-        //
-        //            // Upload the file to the path "images/rivers.jpg"
-        //            let uploadTask = riversRef.putData(data, metadata: nil) { (metadata, error) in
-        //              guard let metadata = metadata else {
-        //                // Uh-oh, an error occurred!
-        //                return
-        //              }
-        //              // Metadata contains file metadata such as size, content-type.
-        //              let size = metadata.size
-        //              // You can also access to download URL after upload.
-        //              riversRef.downloadURL { (url, error) in
-        //                guard let downloadURL = url else {
-        //                  // Uh-oh, an error occurred!
-        //                  return
-        //                }
-        //              }
-        //            }
-        //        }
+    func createPost(with post: Post){
+        // Add a new document with a generated id.
+        let postDoc = K.FStore.Post.self
+        var ref: DocumentReference? = nil
         
-        return ""
+        
+        ref = db.collection(postDoc.collectionName).addDocument(data: [
+            postDoc.userIdField : user!.id,
+            postDoc.timestampField : post.timestamp,
+            postDoc.gradeField : post.grade,
+            postDoc.subjectField : post.subject,
+            postDoc.titleField : post.title,
+            postDoc.textField : post.text,
+            postDoc.imageRefField : post.imageRef,
+            postDoc.viewCountField : post.viewCount,
+            postDoc.answerCountField : post.answerCount,
+            postDoc.imageCountField : post.imageCount
+            
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+        
+    }
+    
+    func uploadImage(images: [Data], timestamp: TimeInterval) -> String{
+        let storageRef = Storage.storage().reference()
+        let basePath = "\(user!.id)/\(timestamp)"
+        
+        var idx = 0
+        
+        for data in images{
+            // Create a reference to the file you want to upload
+            let postImgRef = storageRef.child("\(basePath)\(idx).png")
+            
+            // Upload the file to the path "images/rivers.jpg"
+            postImgRef.putData(data, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                
+                print(metadata)
+            }
+            
+            idx += 1
+        }
+        
+        return basePath
     }
     
     func generateAlert(title: String, isTextField: Bool) -> UIAlertController{
