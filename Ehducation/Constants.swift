@@ -49,6 +49,7 @@ struct K {
     struct FStore {
         struct User {
             static let collectionName = "users"
+            static let usernameField = "username"
             static let emailField = "email"
             static let expField = "exp"
             static let answeredField = "answered"
