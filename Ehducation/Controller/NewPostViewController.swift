@@ -90,21 +90,25 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
             return
         }
         
-        print("All Good")
+        let timestamp = Date().timeIntervalSince1970
+        var path: String?
         
-//        let timestamp = Date().timeIntervalSince1970
-//
-//        // Upload images into firebase storage
-//        let path = FirebaseManager.shared.uploadImage(images: images, timestamp: timestamp)
-//
-//        // Create Post model instance
-//        Post(userId: FirebaseManager.shared.user!.id, timestamp: timestamp, grade: gradeButton.currentTitle!, subject: <#T##String#>, title: <#T##String#>, text: <#T##String#>, imageRef: <#T##String#>, viewCount: <#T##Int#>, answerCount: <#T##Int#>, imageCount: <#T##Int#>)
-//
-//        // Save Post instance into Firestore
-//
-//        // Return to Questions page
-//
-//        // Reload Questions page tableview data
+        if images.count > 0 {
+            // Upload images into firebase storage
+            path = FirebaseManager.shared.uploadImage(images: images, timestamp: timestamp)
+        }
+        
+        // Create Post model instance
+        let post = Post(userId: FirebaseManager.shared.user!.id, timestamp: timestamp, grade: gradeButton.currentTitle!, subject: subjectButton.currentTitle!, title: titleTextField.text!, text: textView.text!, imageRef: path ?? "", viewCount: 0, answerCount: 0, imageCount: images.count)
+        
+        // Save Post instance into Firestore
+        FirebaseManager.shared.createPost(with: post)
+        
+        // TODO: Reload Questions page tableview data
+        
+        // Return to Questions page
+        navigationController?.popViewController(animated: true)
+        
     }
     
     func hasEmptyField() -> Bool{
