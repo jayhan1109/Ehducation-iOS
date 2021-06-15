@@ -40,9 +40,33 @@ class FirebaseManager{
                 }
             }
         }
+        
+        print("create")
+        print(self.user)
     }
     
     func loadUser(email: String){
         
+        let userDoc = K.FStore.User.self
+        
+        db.collection(userDoc.collectionName).whereField(userDoc.emailField, isEqualTo: email)
+            .addSnapshotListener { documentSnapshot, err in
+                
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    let data = documentSnapshot!.documents[0].data()
+                    
+                    if let id = data[userDoc.userIdField] as? String, let exp = data[userDoc.expField] as? Int, let answered = data[userDoc.answeredField] as? Int, let starred = data[userDoc.starredField] as? Int {
+                        
+                        let user = User(id: id, email: email, exp: exp, answered: answered, starred: starred)
+                        
+                        self.user = user
+                    }
+                }
+            }
+        
+        print("load")
+        print(self.user)
     }
 }

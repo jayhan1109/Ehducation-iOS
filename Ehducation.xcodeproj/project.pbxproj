@@ -10,7 +10,7 @@
 		657D193F352593A93DDBF460 /* Pods_Ehducation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85026ADE35C1EA6D1FA77DE /* Pods_Ehducation.framework */; };
 		F009CBB52679420100DBA93D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CBB42679420100DBA93D /* User.swift */; };
 		F009CBB72679449900DBA93D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CBB62679449900DBA93D /* FirebaseManager.swift */; };
-		F0248F472666E2DB002C1081 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0248F462666E2DB002C1081 /* GoogleService-Info.plist */; };
+		F01B4AA42679565300EAE98A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F01B4AA32679565300EAE98A /* GoogleService-Info.plist */; };
 		F0495C1926716BBF00EF2F88 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */; };
 		F0800A2B266986AB00FEAD0E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0800A2A266986AB00FEAD0E /* Constants.swift */; };
 		F0800A2D2669ACD800FEAD0E /* MyQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0800A2C2669ACD800FEAD0E /* MyQuestionsViewController.swift */; };
@@ -32,7 +32,7 @@
 		35E1F3CFB8BA00C61AC27704 /* Pods-Ehducation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ehducation.debug.xcconfig"; path = "Target Support Files/Pods-Ehducation/Pods-Ehducation.debug.xcconfig"; sourceTree = "<group>"; };
 		F009CBB42679420100DBA93D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F009CBB62679449900DBA93D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		F0248F462666E2DB002C1081 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F01B4AA32679565300EAE98A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		F0800A2A266986AB00FEAD0E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F0800A2C2669ACD800FEAD0E /* MyQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionsViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				F0248F432666E159002C1081 /* Controller */,
 				F0AA697426643E5D00C99227 /* Assets.xcassets */,
 				F0AA697926643E5D00C99227 /* Info.plist */,
-				F0248F462666E2DB002C1081 /* GoogleService-Info.plist */,
+				F01B4AA32679565300EAE98A /* GoogleService-Info.plist */,
 				F0800A2A266986AB00FEAD0E /* Constants.swift */,
 			);
 			path = Ehducation;
@@ -225,10 +225,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AA697826643E5D00C99227 /* LaunchScreen.storyboard in Resources */,
-				F0248F472666E2DB002C1081 /* GoogleService-Info.plist in Resources */,
 				F0AA697526643E5D00C99227 /* Assets.xcassets in Resources */,
 				F0AA697326643E5D00C99227 /* Main.storyboard in Resources */,
 				F0928EAB266981DB00BCCECD /* MainTableViewCell.xib in Resources */,
+				F01B4AA42679565300EAE98A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
