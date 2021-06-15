@@ -99,9 +99,9 @@ class FirebaseManager{
         var alert: UIAlertController?
         
         if isTextField {
-            alert = UIAlertController(title: "Alert", message: "\(title) is empty", preferredStyle: UIAlertController.Style.alert)
+            alert = UIAlertController(title: "Missing Content", message: "\(title) is empty", preferredStyle: UIAlertController.Style.alert)
         } else{
-            alert = UIAlertController(title: "Alert", message: "\(title) is not selected", preferredStyle: UIAlertController.Style.alert)
+            alert = UIAlertController(title: "Missing Content", message: "\(title) is not selected", preferredStyle: UIAlertController.Style.alert)
         }
         
         
