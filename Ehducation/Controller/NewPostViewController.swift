@@ -40,18 +40,24 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
         subjectButton.layer.cornerRadius = subjectButton.frame.height / 5
         
         subjectDropdown.anchorView = subjectButton
-        subjectDropdown.dataSource = ["English", "Math", "Science"]
+        subjectDropdown.dataSource = K.subjects
         
         subjectDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             subjectButton.setTitle(item, for: .normal)
         }
+        subjectDropdown.backgroundColor = UIColor(named: K.Colors.pageBackgroundColor)
+        subjectDropdown.textColor = UIColor(named: K.Colors.textPrimaryColor)!
+        subjectDropdown.selectionBackgroundColor = UIColor(named: K.Colors.primaryColor)!
         
         gradeDropdown.anchorView = gradeButton
-        gradeDropdown.dataSource = ["8", "9", "10"]
+        gradeDropdown.dataSource = K.grades
         
         gradeDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             gradeButton.setTitle(item, for: .normal)
         }
+        gradeDropdown.backgroundColor = UIColor(named: K.Colors.pageBackgroundColor)
+        gradeDropdown.textColor = UIColor(named: K.Colors.textPrimaryColor)!
+        gradeDropdown.selectionBackgroundColor = UIColor(named: K.Colors.primaryColor)!
         
         imageViews = [imageView1, imageView2, imageView3, imageView4, imageView5]
         

@@ -34,7 +34,7 @@ class QuestionsController: UIViewController {
         
         
         subjectDropdown.anchorView = subjectButton
-        subjectDropdown.dataSource = ["English", "Math", "Science"]
+        subjectDropdown.dataSource = K.subjects
         
         subjectDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             subjectButton.setTitle(item, for: .normal)
@@ -45,7 +45,7 @@ class QuestionsController: UIViewController {
         
         
         gradeDropdown.anchorView = gradeButton
-        gradeDropdown.dataSource = ["8", "9", "10"]
+        gradeDropdown.dataSource = K.grades
         
         gradeDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             gradeButton.setTitle(item, for: .normal)

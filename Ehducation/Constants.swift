@@ -35,6 +35,9 @@ struct K {
     static let MainPageCellIdentifier = "MainCell"
     static let MainTableViewCell = "MainTableViewCell"
     
+    static let subjects = ["English", "Math", "Science"]
+    static let grades = ["8", "9", "10"]
+    
     struct Colors{
         static let textPrimaryColor = "TextPrimaryColor"
         static let textSecondaryColor = "TextSecondaryColor"
