@@ -94,7 +94,7 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
         var path: String?
         
         if images.count > 0 {
-            // Upload images into firebase storage
+            // Upload images into firebase storage😚
             path = FirebaseManager.shared.uploadImage(images: images, timestamp: timestamp)
         }
         
@@ -134,7 +134,7 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
         }
         
         if subjectButton.currentTitle == "Subject" {
-            let alert = FirebaseManager.shared.generateAlert(title: "Title", isTextField: true)
+            let alert = FirebaseManager.shared.generateAlert(title: "Subject", isTextField: false)
             self.present(alert, animated: true, completion: nil)
             
             return true

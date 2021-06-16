@@ -39,6 +39,10 @@ class QuestionsController: UIViewController {
         subjectDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             subjectButton.setTitle(item, for: .normal)
         }
+        subjectDropdown.backgroundColor = UIColor(named: K.Colors.pageBackgroundColor)
+        subjectDropdown.textColor = UIColor(named: K.Colors.textPrimaryColor)!
+        subjectDropdown.selectionBackgroundColor = UIColor(named: K.Colors.primaryColor)!
+        
         
         gradeDropdown.anchorView = gradeButton
         gradeDropdown.dataSource = ["8", "9", "10"]
@@ -46,6 +50,9 @@ class QuestionsController: UIViewController {
         gradeDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             gradeButton.setTitle(item, for: .normal)
         }
+        gradeDropdown.backgroundColor = UIColor(named: K.Colors.pageBackgroundColor)
+        gradeDropdown.textColor = UIColor(named: K.Colors.textPrimaryColor)!
+        gradeDropdown.selectionBackgroundColor = UIColor(named: K.Colors.primaryColor)!
         
         // Table View
         tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
