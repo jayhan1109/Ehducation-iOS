@@ -17,6 +17,12 @@ class WelcomeViewController: UIViewController{
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         welcomeButton.layer.cornerRadius = welcomeButton.frame.height / 5
+        
+        // If the user already logged in, go to main page
+        if let email = Auth.auth().currentUser?.email {
+            FirebaseManager.shared.loadUser(email: email)
+            performSegue(withIdentifier: "goToHome", sender: self)
+        }
     }
     @IBAction func welcomePressed(_ sender: UIButton) {
         let authUI = FUIAuth.defaultAuthUI()
