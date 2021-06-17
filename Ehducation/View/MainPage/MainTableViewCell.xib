@@ -11,49 +11,49 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainCell" rowHeight="86" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="Ehducation" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="369" height="86"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainCell" rowHeight="116" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="Ehducation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="369" height="86"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="422" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Clw-CH-fCq">
-                        <rect key="frame" x="20" y="10" width="329" height="66"/>
+                        <rect key="frame" x="20" y="10" width="382" height="100"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VCV-qY-VuN">
-                                <rect key="frame" x="0.0" y="0.0" width="263" height="66"/>
+                                <rect key="frame" x="0.0" y="0.0" width="305.5" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is Pie?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFP-Hr-xa4">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="305.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="HQU-dK-RE8">
-                                        <rect key="frame" x="0.0" y="27.5" width="263" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="49" width="305.5" height="51"/>
                                         <string key="text">What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?What is Pie?</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="FFP-Hr-xa4" firstAttribute="height" secondItem="HQU-dK-RE8" secondAttribute="height" multiplier="50%" id="nph-9Q-GqN"/>
+                                    <constraint firstItem="FFP-Hr-xa4" firstAttribute="height" secondItem="HQU-dK-RE8" secondAttribute="height" multiplier="80%" id="nph-9Q-GqN"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Q7u-mb-sPh">
-                                <rect key="frame" x="263" y="13" width="66" height="48"/>
+                                <rect key="frame" x="305.5" y="5" width="76.5" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07r-dr-eU3">
-                                        <rect key="frame" x="0.0" y="0.0" width="66" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGi-Jj-mcO">
-                                        <rect key="frame" x="0.0" y="27.5" width="66" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="76.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -64,6 +64,7 @@
                             </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="height" constant="100" id="F2D-g8-gEJ"/>
                             <constraint firstItem="Q7u-mb-sPh" firstAttribute="top" secondItem="Clw-CH-fCq" secondAttribute="top" constant="5" id="Ma0-kF-zfS"/>
                             <constraint firstItem="VCV-qY-VuN" firstAttribute="width" secondItem="Q7u-mb-sPh" secondAttribute="width" multiplier="4:1" id="Ywg-cL-1Dz"/>
                             <constraint firstAttribute="bottom" secondItem="Q7u-mb-sPh" secondAttribute="bottom" constant="5" id="ZyK-DH-bqm"/>
@@ -85,7 +86,7 @@
                 <outlet property="countLabel" destination="07r-dr-eU3" id="D4q-UA-rhg"/>
                 <outlet property="titleLabel" destination="FFP-Hr-xa4" id="SL5-gX-uM1"/>
             </connections>
-            <point key="canvasLocation" x="167.39130434782609" y="145.98214285714286"/>
+            <point key="canvasLocation" x="205.79710144927537" y="156.02678571428569"/>
         </tableViewCell>
     </objects>
     <resources>

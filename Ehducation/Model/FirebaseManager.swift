@@ -10,13 +10,21 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+protocol FirebaseManagerDelegate {
+    func updateUI()
+}
+
 class FirebaseManager{
     static let shared = FirebaseManager()
     
     let db = Firestore.firestore()
     
+    var delegate: FirebaseManagerDelegate?
+    
     var user: User?
-    var questions: [Post] = []
+    var allQuestion: [Post] = []
+    var myQuestions: [Post] = []
+    var myAnswers: [Post] = []
     
     private init(){}
     
@@ -135,5 +143,43 @@ class FirebaseManager{
         alert!.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         return alert!
+    }
+    
+    func getAllQuestions(){
+        let postDoc = K.FStore.Post.self
+        
+        db.collection(postDoc.collectionName).addSnapshotListener { documentSnapshot, err in
+            let postDoc = K.FStore.Post.self
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in documentSnapshot!.documents{
+                    let data = document.data()
+                    if let id = data[postDoc.userIdField] as? String,
+                       let timestamp = data[postDoc.timestampField] as? TimeInterval,
+                       let grade = data[postDoc.gradeField] as? String,
+                       let subject = data[postDoc.subjectField] as? String,
+                       let title = data[postDoc.titleField] as? String,
+                       let text = data[postDoc.textField] as? String,
+                       let imageRef = data[postDoc.imageRefField] as? String,
+                       let viewCount = data[postDoc.viewCountField] as? Int,
+                       let answerCount = data[postDoc.answerCountField] as? Int,
+                       let imageCount = data[postDoc.imageCountField] as? Int {
+                        self.allQuestion.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.delegate?.updateUI()
+                }
+            }
+        }
+    }
+    
+    func getMyQuestions(){
+        
+    }
+    
+    func getMyAnswers(){
+        
     }
 }

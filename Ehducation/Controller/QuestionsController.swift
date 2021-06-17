@@ -20,6 +20,7 @@ class QuestionsController: UIViewController {
     let gradeDropdown = DropDown()
     let subjectDropdown = DropDown()
     
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
     }
@@ -27,11 +28,11 @@ class QuestionsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FirebaseManager.shared.delegate = self
+        
         newButton.layer.cornerRadius = newButton.frame.height / 5
         subjectButton.layer.cornerRadius = subjectButton.frame.height / 5
         gradeButton.layer.cornerRadius = gradeButton.frame.height / 5
-        
-        
         
         subjectDropdown.anchorView = subjectButton
         subjectDropdown.dataSource = K.subjects
@@ -56,6 +57,10 @@ class QuestionsController: UIViewController {
         
         // Table View
         tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
+        
+        tableView.backgroundColor = .clear
+        
+        FirebaseManager.shared.getAllQuestions()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,7 +87,7 @@ class QuestionsController: UIViewController {
 
 extension QuestionsController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return K.titles.count
+        return FirebaseManager.shared.allQuestion.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,9 +95,16 @@ extension QuestionsController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = K.titles[indexPath.row]
-        cell.contentLabel.text = K.contents[indexPath.row]
+        cell.titleLabel.text = FirebaseManager.shared.allQuestion[indexPath.row].title
+        cell.contentLabel.text = FirebaseManager.shared.allQuestion[indexPath.row].text
+        cell.countLabel.text = String(FirebaseManager.shared.allQuestion[indexPath.row].answerCount)
         
         return cell
+    }
+}
+
+extension QuestionsController: FirebaseManagerDelegate{
+    func updateUI() {
+        tableView.reloadData()
     }
 }
