@@ -142,6 +142,8 @@ class FirebaseManager{
         // add an action (button)
         alert!.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
+        alert!.view.layoutIfNeeded()
+        
         return alert!
     }
     
@@ -151,12 +153,11 @@ class FirebaseManager{
         
         db.collection(postDoc.collectionName).order(by: postDoc.timestampField, descending: true).addSnapshotListener { documentSnapshot, err in
             
-            self.allQuestion = []
-            
             let postDoc = K.FStore.Post.self
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.allQuestion = []
                 for document in documentSnapshot!.documents{
                     let data = document.data()
                     if let id = data[postDoc.userIdField] as? String,
@@ -184,12 +185,11 @@ class FirebaseManager{
         
         db.collection(postDoc.collectionName).order(by: postDoc.timestampField, descending: true).whereField(postDoc.userIdField, isEqualTo: self.user!.id).addSnapshotListener { documentSnapshot, err in
             
-            self.myQuestions = []
-            
             let postDoc = K.FStore.Post.self
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.myQuestions = []
                 for document in documentSnapshot!.documents{
                     let data = document.data()
                     if let id = data[postDoc.userIdField] as? String,
