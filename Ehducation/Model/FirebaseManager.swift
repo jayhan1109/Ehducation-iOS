@@ -182,7 +182,7 @@ class FirebaseManager{
     func getMyQuestions(){
         let postDoc = K.FStore.Post.self
         
-        db.collection(postDoc.collectionName).whereField(postDoc.userIdField, isEqualTo: self.user!.id).order(by: postDoc.timestampField, descending: true).addSnapshotListener { documentSnapshot, err in
+        db.collection(postDoc.collectionName).order(by: postDoc.timestampField, descending: true).whereField(postDoc.userIdField, isEqualTo: self.user!.id).addSnapshotListener { documentSnapshot, err in
             
             self.myQuestions = []
             
