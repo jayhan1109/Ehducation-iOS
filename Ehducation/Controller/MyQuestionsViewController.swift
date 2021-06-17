@@ -15,6 +15,8 @@ class MyQuestionsViewController: UIViewController {
 
         // Table View
         tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
+        
+        tableView.backgroundColor = .clear
     }
 }
 
