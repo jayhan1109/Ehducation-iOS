@@ -12,17 +12,21 @@ class MyQuestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FirebaseManager.shared.delegate = self
 
         // Table View
         tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
         
         tableView.backgroundColor = .clear
+        
+        FirebaseManager.shared.getMyQuestions()
     }
 }
 
 extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return K.titles.count
+        return FirebaseManager.shared.myQuestions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,9 +34,16 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        cell.titleLabel.text = K.titles[indexPath.row]
-        cell.contentLabel.text = K.contents[indexPath.row]
+        cell.titleLabel.text = FirebaseManager.shared.myQuestions[indexPath.row].title
+        cell.contentLabel.text = FirebaseManager.shared.myQuestions[indexPath.row].text
+        cell.countLabel.text = String(FirebaseManager.shared.myQuestions[indexPath.row].answerCount)
         
         return cell
+    }
+}
+
+extension MyQuestionsViewController: FirebaseManagerDelegate{
+    func updateUI() {
+        tableView.reloadData()
     }
 }

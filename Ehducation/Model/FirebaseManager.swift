@@ -176,7 +176,33 @@ class FirebaseManager{
     }
     
     func getMyQuestions(){
+        let postDoc = K.FStore.Post.self
         
+        db.collection(postDoc.collectionName).whereField(postDoc.userIdField, isEqualTo: self.user!.id).addSnapshotListener { documentSnapshot, err in
+            let postDoc = K.FStore.Post.self
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in documentSnapshot!.documents{
+                    let data = document.data()
+                    if let id = data[postDoc.userIdField] as? String,
+                       let timestamp = data[postDoc.timestampField] as? TimeInterval,
+                       let grade = data[postDoc.gradeField] as? String,
+                       let subject = data[postDoc.subjectField] as? String,
+                       let title = data[postDoc.titleField] as? String,
+                       let text = data[postDoc.textField] as? String,
+                       let imageRef = data[postDoc.imageRefField] as? String,
+                       let viewCount = data[postDoc.viewCountField] as? Int,
+                       let answerCount = data[postDoc.answerCountField] as? Int,
+                       let imageCount = data[postDoc.imageCountField] as? Int {
+                        self.myQuestions.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.delegate?.updateUI()
+                }
+            }
+        }
     }
     
     func getMyAnswers(){
