@@ -23,6 +23,7 @@ class QuestionsController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {

@@ -146,9 +146,13 @@ class FirebaseManager{
     }
     
     func getAllQuestions(){
+        
         let postDoc = K.FStore.Post.self
         
         db.collection(postDoc.collectionName).addSnapshotListener { documentSnapshot, err in
+            
+            self.allQuestion = []
+            
             let postDoc = K.FStore.Post.self
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -179,6 +183,9 @@ class FirebaseManager{
         let postDoc = K.FStore.Post.self
         
         db.collection(postDoc.collectionName).whereField(postDoc.userIdField, isEqualTo: self.user!.id).addSnapshotListener { documentSnapshot, err in
+            
+            self.myQuestions = []
+            
             let postDoc = K.FStore.Post.self
             if let err = err {
                 print("Error getting documents: \(err)")

@@ -10,6 +10,10 @@ import UIKit
 class MyQuestionsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
