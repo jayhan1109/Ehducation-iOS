@@ -4,13 +4,22 @@
 
 ## Figma
 <div>
-
 ![Screen Shot 2021-06-26 at 12 01 43 AM](https://user-images.githubusercontent.com/24958454/123505083-e59d2000-d611-11eb-99d5-52166ef409df.png)
 ![Screen Shot 2021-06-26 at 12 01 55 AM](https://user-images.githubusercontent.com/24958454/123505087-e635b680-d611-11eb-82b8-5453025a2c4e.png)
-
-
 </div>
 
+## Application (Still Working on it)
+### Auth
+![Simulator Screen Recording - iPhone 12 Pro Max - 2021-06-26 at 00 07 36](https://user-images.githubusercontent.com/24958454/123505246-d79bcf00-d612-11eb-9ccc-6e47375540c4.gif)
+
+
+### Post
+![Simulator Screen Recording - iPhone 12 Pro Max - 2021-06-26 at 00 09 39](https://user-images.githubusercontent.com/24958454/123505250-dc608300-d612-11eb-8b94-6f4f65615479.gif)
+
+### Firebase
+![Screen Shot 2021-06-26 at 12 10 42 AM](https://user-images.githubusercontent.com/24958454/123505277-04e87d00-d613-11eb-9f3e-113a2f60f32b.png)
+![Screen Shot 2021-06-26 at 12 10 50 AM](https://user-images.githubusercontent.com/24958454/123505278-05811380-d613-11eb-9f65-cf93d14b0d81.png)
+![Screen Shot 2021-06-26 at 12 10 58 AM](https://user-images.githubusercontent.com/24958454/123505280-0619aa00-d613-11eb-8fd8-ed655e949199.png)
 
 
 
