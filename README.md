@@ -19,6 +19,8 @@
 ### Firebase
 ![Screen Shot 2021-06-26 at 12 10 42 AM](https://user-images.githubusercontent.com/24958454/123505277-04e87d00-d613-11eb-9f3e-113a2f60f32b.png)
 ![Screen Shot 2021-06-26 at 12 10 50 AM](https://user-images.githubusercontent.com/24958454/123505278-05811380-d613-11eb-9f65-cf93d14b0d81.png)
+
+## Firebase Storage - Images
 ![Screen Shot 2021-06-26 at 12 10 58 AM](https://user-images.githubusercontent.com/24958454/123505280-0619aa00-d613-11eb-8fd8-ed655e949199.png)
 
 
