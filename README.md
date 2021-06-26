@@ -4,8 +4,9 @@
 
 ## Figma
 <div>
- <img width="161" alt="Screen Shot 2021-06-15 at 7 46 42 PM" src="https://user-images.githubusercontent.com/24958454/122150705-1364b680-ce13-11eb-818f-1156d10830cd.png">
-<img width="161" alt="Screen Shot 2021-06-15 at 7 46 48 PM" src="https://user-images.githubusercontent.com/24958454/122150706-152e7a00-ce13-11eb-8941-d0ca55f04641.png">
+![Screen Shot 2021-06-26 at 12 01 43 AM](https://user-images.githubusercontent.com/24958454/123505071-d7e79a80-d611-11eb-8748-76f2a7ade62a.png)
+![Screen Shot 2021-06-26 at 12 01 55 AM](https://user-images.githubusercontent.com/24958454/123505073-d8803100-d611-11eb-9a53-4c35f4a8f314.png)
+
 
 </div>
 
