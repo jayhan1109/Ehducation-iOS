@@ -4,8 +4,9 @@
 
 ## Figma
 <div>
-![Screen Shot 2021-06-26 at 12 01 43 AM](https://user-images.githubusercontent.com/24958454/123505083-e59d2000-d611-11eb-99d5-52166ef409df.png)
-![Screen Shot 2021-06-26 at 12 01 55 AM](https://user-images.githubusercontent.com/24958454/123505087-e635b680-d611-11eb-82b8-5453025a2c4e.png)
+![0](https://user-images.githubusercontent.com/24958454/123564293-c2878300-d76d-11eb-90dd-2bec0d3e4610.png)
+![1](https://user-images.githubusercontent.com/24958454/123564294-c3b8b000-d76d-11eb-908d-a1d16c33cbf2.png)
+
 </div>
 
 ## Application (Still Working on it)
