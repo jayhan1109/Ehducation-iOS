@@ -10,12 +10,20 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+// MARK: - FirebaseManagerDelegate
 protocol FirebaseManagerDelegate {
+    
+    // Update ViewController's UI
     func updateUI()
 }
 
 class FirebaseManager{
+    
+    // MARK: - Singleton instance
+    
     static let shared = FirebaseManager()
+    
+    // MARK: - Properties
     
     let db = Firestore.firestore()
     
@@ -28,6 +36,9 @@ class FirebaseManager{
     
     private init(){}
     
+    // MARK: - API
+    
+    // Create User
     func createUser(with user: User?){
         self.user = user
         
@@ -53,6 +64,7 @@ class FirebaseManager{
         }
     }
     
+    // Load user with email and set user property with loaded user
     func loadUser(email: String){
         
         let userDoc = K.FStore.User.self
@@ -75,11 +87,11 @@ class FirebaseManager{
             }
     }
     
+    // Create a post
     func createPost(with post: Post){
         // Add a new document with a generated id.
         let postDoc = K.FStore.Post.self
         var ref: DocumentReference? = nil
-        
         
         ref = db.collection(postDoc.collectionName).addDocument(data: [
             postDoc.userIdField : user!.id,
@@ -103,6 +115,7 @@ class FirebaseManager{
         
     }
     
+    // Upload image to Firestorage
     func uploadImage(images: [Data], timestamp: TimeInterval) -> String{
         let storageRef = Storage.storage().reference()
         let basePath = "\(user!.id)/\(timestamp)"
@@ -129,6 +142,7 @@ class FirebaseManager{
         return basePath
     }
     
+    // Alert when TextField is empty or Dropdown is not selected
     func generateAlert(title: String, isTextField: Bool) -> UIAlertController{
         var alert: UIAlertController?
         
@@ -147,6 +161,7 @@ class FirebaseManager{
         return alert!
     }
     
+    // Get all questions from DB
     func getAllQuestions(){
         
         let postDoc = K.FStore.Post.self
@@ -173,13 +188,13 @@ class FirebaseManager{
                         self.allQuestion.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
                     }
                 }
-                DispatchQueue.main.async {
-                    self.delegate?.updateUI()
-                }
+                
+                self.delegate?.updateUI()
             }
         }
     }
     
+    // Get current user's questions from DB
     func getMyQuestions(){
         let postDoc = K.FStore.Post.self
         
@@ -205,14 +220,9 @@ class FirebaseManager{
                         self.myQuestions.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
                     }
                 }
-                DispatchQueue.main.async {
-                    self.delegate?.updateUI()
-                }
+                
+                self.delegate?.updateUI()
             }
         }
-    }
-    
-    func getMyAnswers(){
-        
     }
 }

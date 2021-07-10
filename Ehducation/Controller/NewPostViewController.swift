@@ -10,6 +10,9 @@ import DropDown
 import PhotosUI
 
 class NewPostViewController: UIViewController,UITextViewDelegate {
+    
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var gradeButton: UIButton!
     @IBOutlet weak var subjectButton: UIButton!
@@ -21,12 +24,15 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var titleTextField: UITextField!
     
+    // MARK: - Properties
+    
     let gradeDropdown = DropDown()
     let subjectDropdown = DropDown()
     
     var imageViews: [UIImageView] = []
-    var clearViews: [UIButton] = []
     var images: [Data] = []
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,77 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
         navigationController?.navigationBar.barTintColor = UIColor(named: K.Colors.pageBackgroundColor)
         
         postButton.layer.cornerRadius = postButton.frame.height / 5
+        
+        configureDropdown()
+        
+        imageViews = [imageView1, imageView2, imageView3, imageView4, imageView5]
+        
+    }
+    
+    // Dismiss keyboard when touch outside of textView and textField
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textView.endEditing(true)
+        titleTextField.endEditing(true)
+    }
+    
+    // MARK: - IBAction
+    
+    // Show grade dropdown
+    @IBAction func gradePressed(_ sender: UIButton) {
+        gradeDropdown.show()
+    }
+    
+    // Show subject dropdown
+    @IBAction func subjectPressed(_ sender: Any) {
+        subjectDropdown.show()
+    }
+    
+    // Set up PHPhotoLibrary and present it
+    // After picking up images, handle at deleagate function
+    @IBAction func addImageButton(_ sender: UIButton) {
+        if #available(iOS 14, *) {
+            let photoLibrary = PHPhotoLibrary.shared()
+            var configuration = PHPickerConfiguration(photoLibrary: photoLibrary)
+            configuration.selectionLimit = 5
+            configuration.filter = .any(of: [.images, .videos])
+            
+            let picker = PHPickerViewController(configuration: configuration)
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+    // Create a post
+    @IBAction func postPressed(_ sender: UIButton) {
+        // Check if title, grade, subject, text are not empty
+        if hasEmptyField() {
+            return
+        }
+        
+        let timestamp = Date().timeIntervalSince1970
+        var path: String?
+        
+        // If there are images, upload them to Firestorage
+        if images.count > 0 {
+            path = FirebaseManager.shared.uploadImage(images: images, timestamp: timestamp)
+        }
+        
+        // Create Post model instance
+        let post = Post(userId: FirebaseManager.shared.user!.id, timestamp: timestamp, grade: gradeButton.currentTitle!, subject: subjectButton.currentTitle!, title: titleTextField.text!, text: textView.text!, imageRef: path ?? "", viewCount: 0, answerCount: 0, imageCount: images.count)
+        
+        // Save Post instance into Firestore
+        FirebaseManager.shared.createPost(with: post)
+        
+        // Return to Questions page
+        navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Helpers
+    
+    // Configure grade and subject dropdown
+    func configureDropdown(){
         gradeButton.layer.cornerRadius = gradeButton.frame.height / 5
         subjectButton.layer.cornerRadius = subjectButton.frame.height / 5
         
@@ -58,65 +135,9 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
         gradeDropdown.backgroundColor = UIColor(named: K.Colors.pageBackgroundColor)
         gradeDropdown.textColor = UIColor(named: K.Colors.textPrimaryColor)!
         gradeDropdown.selectionBackgroundColor = UIColor(named: K.Colors.primaryColor)!
-        
-        imageViews = [imageView1, imageView2, imageView3, imageView4, imageView5]
-        
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        textView.endEditing(true)
-        titleTextField.endEditing(true)
-    }
-    
-    @IBAction func gradePressed(_ sender: UIButton) {
-        gradeDropdown.show()
-    }
-    @IBAction func subjectPressed(_ sender: Any) {
-        subjectDropdown.show()
-    }
-    
-    @IBAction func addImageButton(_ sender: UIButton) {
-        if #available(iOS 14, *) {
-            let photoLibrary = PHPhotoLibrary.shared()
-            var configuration = PHPickerConfiguration(photoLibrary: photoLibrary)
-            configuration.selectionLimit = 5
-            configuration.filter = .any(of: [.images, .videos])
-            
-            let picker = PHPickerViewController(configuration: configuration)
-            picker.delegate = self
-            self.present(picker, animated: true, completion: nil)
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-    
-    @IBAction func postPressed(_ sender: UIButton) {
-        // Check if title, grade, subject, text are not empty
-        if hasEmptyField() {
-            return
-        }
-        
-        let timestamp = Date().timeIntervalSince1970
-        var path: String?
-        
-        if images.count > 0 {
-            // Upload images into firebase storage😚
-            path = FirebaseManager.shared.uploadImage(images: images, timestamp: timestamp)
-        }
-        
-        // Create Post model instance
-        let post = Post(userId: FirebaseManager.shared.user!.id, timestamp: timestamp, grade: gradeButton.currentTitle!, subject: subjectButton.currentTitle!, title: titleTextField.text!, text: textView.text!, imageRef: path ?? "", viewCount: 0, answerCount: 0, imageCount: images.count)
-        
-        // Save Post instance into Firestore
-        FirebaseManager.shared.createPost(with: post)
-        
-        // TODO: Reload Questions page tableview data
-        
-        // Return to Questions page
-        navigationController?.popViewController(animated: true)
-        
-    }
-    
+    // Check if any textfields or dropdowns are empty and show alert to user
     func hasEmptyField() -> Bool{
         if titleTextField.text == "" {
             let alert = FirebaseManager.shared.generateAlert(title: "Title", isTextField: true)
@@ -150,6 +171,8 @@ class NewPostViewController: UIViewController,UITextViewDelegate {
     }
 }
 
+// MARK: - PHPickerViewControllerDelegate
+
 extension NewPostViewController: PHPickerViewControllerDelegate {
     
     @available(iOS 14, *)
@@ -157,12 +180,14 @@ extension NewPostViewController: PHPickerViewControllerDelegate {
         
         picker.dismiss(animated: true)
         
+        // Remove current images in image views
         for imgView in imageViews{
             imgView.image = .none
         }
         
         images = []
         
+        // Load images and set each image to each image view
         for idx in 0..<results.count{
             let itemProvider = results[idx].itemProvider
             

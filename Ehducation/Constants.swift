@@ -32,12 +32,25 @@ struct K {
         "Pie cannot defeat Number 4, because it's 3.141592... hahaha",
     ]
     
-    static let MainPageCellIdentifier = "MainCell"
-    static let MainTableViewCell = "MainTableViewCell"
+    // Identifier
+    struct Identifiers {
+        static let MainPageCellIdentifier = "MainCell"
+        static let homeToPostIdentifier = "homeToPost"
+        static let myQuestionToPostIdentifier = "myQuestionToPost"
+        static let myAnswerToPostIdentifier = "myAnswerToPost"
+        static let welcomeToHomeIdentifier = "goToHome"
+    }
     
+    // Custom Cell
+    struct CustomCell {
+        static let MainTableViewCell = "MainTableViewCell"
+    }
+    
+    // Dropdowns
     static let subjects = ["English", "Math", "Science"]
     static let grades = ["8", "9", "10"]
     
+    // Colors
     struct Colors{
         static let textPrimaryColor = "TextPrimaryColor"
         static let textSecondaryColor = "TextSecondaryColor"
@@ -49,6 +62,7 @@ struct K {
         static let selectedAnswerMarkColor = "SelectedAnswerMarkColor"
     }
     
+    // Firebase
     struct FStore {
         struct User {
             static let userIdField = "user_id"

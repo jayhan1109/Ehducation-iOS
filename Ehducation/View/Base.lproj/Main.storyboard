@@ -214,6 +214,7 @@
                         <outlet property="searchTextField" destination="6F1-sN-GTM" id="e2x-bV-SBg"/>
                         <outlet property="subjectButton" destination="2tt-cB-mVP" id="2Sh-dD-Waw"/>
                         <outlet property="tableView" destination="GBZ-cA-n7R" id="L5M-kG-4ce"/>
+                        <segue destination="aSE-Wv-UQA" kind="show" identifier="homeToPost" id="uBF-pH-YDb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -259,6 +260,7 @@
                     <tabBarItem key="tabBarItem" title="My Questions" image="questionmark.folder.fill" catalog="system" id="xJR-6F-3pH"/>
                     <connections>
                         <outlet property="tableView" destination="vnz-gl-IId" id="VyY-TT-iWh"/>
+                        <segue destination="aSE-Wv-UQA" kind="show" identifier="myQuestionToPost" id="Qrh-du-On2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOd-fS-cE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -478,7 +480,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0J-Ky-0Jh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-740.18691588785043" y="777.53779697624191"/>
+            <point key="canvasLocation" x="-1389" y="894"/>
+        </scene>
+        <!--Post Detail View Controller-->
+        <scene sceneID="VBj-UD-9i9">
+            <objects>
+                <viewController id="aSE-Wv-UQA" customClass="PostDetailViewController" customModule="Ehducation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IM9-hD-4GI">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jdV-qz-j76">
+                                <rect key="frame" x="20" y="108" width="388" height="107.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn6-fx-kSd">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="107.66666666666667"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Oj1-vQ-8j8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" name="QuestionLetterColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLLabelLabelLabelLabelLabelLLabelLabelLabelLabelLabelLLabelLabelLabelLabelLabelL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yQG-FI-wTh">
+                                        <rect key="frame" x="50" y="0.0" width="338" height="107.66666666666667"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yQG-FI-wTh" firstAttribute="centerY" secondItem="jdV-qz-j76" secondAttribute="centerY" id="Peu-Hf-wwq"/>
+                                    <constraint firstItem="jn6-fx-kSd" firstAttribute="centerY" secondItem="jdV-qz-j76" secondAttribute="centerY" id="qrI-Ho-sIe"/>
+                                </constraints>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YR-M1-ugQ">
+                                <rect key="frame" x="20" y="225.66666666666663" width="388" height="250"/>
+                                <color key="backgroundColor" name="PageBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="2Yw-Si-LWd"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" name="TextPrimaryColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dH4-TD-dxg"/>
+                        <color key="backgroundColor" name="PageBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dH4-TD-dxg" firstAttribute="trailing" secondItem="jdV-qz-j76" secondAttribute="trailing" constant="20" id="04u-Mk-Y33"/>
+                            <constraint firstItem="jdV-qz-j76" firstAttribute="top" secondItem="dH4-TD-dxg" secondAttribute="top" constant="20" id="1Wz-xZ-HMT"/>
+                            <constraint firstItem="6YR-M1-ugQ" firstAttribute="leading" secondItem="dH4-TD-dxg" secondAttribute="leading" constant="20" id="7pK-rq-McA"/>
+                            <constraint firstItem="dH4-TD-dxg" firstAttribute="trailing" secondItem="6YR-M1-ugQ" secondAttribute="trailing" constant="20" id="ETT-Cf-heE"/>
+                            <constraint firstItem="jdV-qz-j76" firstAttribute="leading" secondItem="dH4-TD-dxg" secondAttribute="leading" constant="20" id="eLA-Kr-Jfk"/>
+                            <constraint firstItem="6YR-M1-ugQ" firstAttribute="top" secondItem="jdV-qz-j76" secondAttribute="bottom" constant="10" id="n72-55-msf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="R1T-f3-GgN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OC7-MS-wDd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-639.25233644859804" y="893.52051835853138"/>
         </scene>
         <!--My Answers-->
         <scene sceneID="Uhr-n2-78Z">
@@ -519,6 +582,7 @@
                     <tabBarItem key="tabBarItem" title="My Answers" image="tray.fill" catalog="system" id="OAf-BG-140"/>
                     <connections>
                         <outlet property="tableView" destination="3f2-P0-M1Y" id="JmE-K0-afd"/>
+                        <segue destination="aSE-Wv-UQA" kind="show" identifier="myAnswerToPost" id="LJg-gK-jVL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3MO-FR-B3O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -756,6 +820,9 @@
             <point key="canvasLocation" x="-1640.1869158878503" y="-652.48380129589634"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uBF-pH-YDb"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" name="TextPrimaryColor"/>
     <resources>
         <image name="GrandMaster" width="128" height="128"/>

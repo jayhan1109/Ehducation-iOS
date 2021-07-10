@@ -9,11 +9,16 @@ import UIKit
 import FirebaseUI
 
 class WelcomeViewController: UIViewController{
+    
+    // MARK: - IBOutlet
     @IBOutlet weak var welcomeButton: UIButton!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide navigation bar
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         welcomeButton.layer.cornerRadius = welcomeButton.frame.height / 5
@@ -21,10 +26,15 @@ class WelcomeViewController: UIViewController{
         // If the user already logged in, go to main page
         if let email = Auth.auth().currentUser?.email {
             FirebaseManager.shared.loadUser(email: email)
-            performSegue(withIdentifier: "goToHome", sender: self)
+            performSegue(withIdentifier: K.Identifiers.welcomeToHomeIdentifier, sender: self)
         }
     }
+    
+    // MARK: - IBAction
+    
+    // Use FirebaseUI to authenticate user
     @IBAction func welcomePressed(_ sender: UIButton) {
+        
         let authUI = FUIAuth.defaultAuthUI()
 
         guard authUI != nil else {
@@ -42,6 +52,8 @@ class WelcomeViewController: UIViewController{
 
 }
 
+// MARK: - FUIAuthDelegate
+
 extension WelcomeViewController: FUIAuthDelegate{
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if error != nil {
@@ -49,6 +61,8 @@ extension WelcomeViewController: FUIAuthDelegate{
         }
         
         // Check if the user is new
+        // new user -> Create User instance and save into DB
+        // old user -> Load user info with email
         if let isNewUser = authDataResult?.additionalUserInfo?.isNewUser, let user = authDataResult?.user{
             
             if isNewUser{
@@ -64,6 +78,6 @@ extension WelcomeViewController: FUIAuthDelegate{
             }
         }
         
-        performSegue(withIdentifier: "goToHome", sender: self)
+        performSegue(withIdentifier: K.Identifiers.welcomeToHomeIdentifier, sender: self)
     }
 }

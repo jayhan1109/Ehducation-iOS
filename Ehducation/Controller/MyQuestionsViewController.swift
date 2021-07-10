@@ -8,7 +8,12 @@
 import UIKit
 
 class MyQuestionsViewController: UIViewController {
+    
+    // MARK: - IBOutlet
+
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -18,15 +23,16 @@ class MyQuestionsViewController: UIViewController {
         super.viewDidLoad()
         
         FirebaseManager.shared.delegate = self
+        FirebaseManager.shared.getMyQuestions()
 
-        // Table View
-        tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
+        // Configure Table View
+        tableView.register(UINib.init(nibName: K.CustomCell.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.Identifiers.MainPageCellIdentifier)
         
         tableView.backgroundColor = .clear
-        
-        FirebaseManager.shared.getMyQuestions()
     }
 }
+
+// MARK: - UITableViewDelegate & UITableViewDataSource
 
 extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,7 +40,7 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.MainPageCellIdentifier, for: indexPath) as? MainTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.MainPageCellIdentifier, for: indexPath) as? MainTableViewCell else {
             return UITableViewCell()
         }
         
@@ -45,6 +51,8 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
 }
+
+// MARK: - FirebaseManagerDelegate
 
 extension MyQuestionsViewController: FirebaseManagerDelegate{
     func updateUI() {

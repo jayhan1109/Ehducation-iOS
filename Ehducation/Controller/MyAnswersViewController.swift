@@ -8,18 +8,24 @@
 import UIKit
 
 class MyAnswersViewController: UIViewController {
+    
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Table View
-        tableView.register(UINib.init(nibName: K.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.MainPageCellIdentifier)
+        tableView.register(UINib.init(nibName: K.CustomCell.MainTableViewCell, bundle: nil), forCellReuseIdentifier: K.Identifiers.MainPageCellIdentifier)
         
         tableView.backgroundColor = .clear
     }
 }
+
+// MARK: - UITableViewDelegate & UITableViewDataSource
 
 extension MyAnswersViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,7 +33,7 @@ extension MyAnswersViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.MainPageCellIdentifier, for: indexPath) as? MainTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.Identifiers.MainPageCellIdentifier, for: indexPath) as? MainTableViewCell else {
             return UITableViewCell()
         }
         

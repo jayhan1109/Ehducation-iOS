@@ -10,12 +10,16 @@ import FirebaseUI
 
 class MyPageViewController: UIViewController {
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
 
+    // MARK: - IBAction
+    
+    // Logout with FirebaseUI
     @IBAction func logoutPressed(_ sender: UIButton) {
         
         let authUI = FUIAuth.defaultAuthUI()
