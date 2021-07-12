@@ -39,7 +39,7 @@ class FirebaseManager{
     // MARK: - API
     
     // Create User
-    func createUser(with user: User?){
+    func createUser(with user: User?) {
         self.user = user
         
         // Add a new document with a generated id.
@@ -188,9 +188,13 @@ class FirebaseManager{
                         self.allQuestion.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
                     }
                 }
+                print("hey11")
                 DispatchQueue.main.async {
+                    print("hey22")
                     self.delegate?.updateUI()
                 }
+                
+                print("hey33")
             }
         }
     }
@@ -221,8 +225,9 @@ class FirebaseManager{
                         self.myQuestions.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
                     }
                 }
-                
-                self.delegate?.updateUI()
+                DispatchQueue.main.async {
+                    self.delegate?.updateUI()
+                }
             }
         }
     }

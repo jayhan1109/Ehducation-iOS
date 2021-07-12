@@ -133,6 +133,7 @@ extension QuestionsController: UITableViewDelegate, UITableViewDataSource{
 
 extension QuestionsController: FirebaseManagerDelegate{
     func updateUI() {
-        tableView.reloadData()
+        print("hey444")
+        self.tableView.reloadData()
     }
 }
