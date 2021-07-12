@@ -188,13 +188,9 @@ class FirebaseManager{
                         self.allQuestion.append(Post(userId: id, timestamp: timestamp, grade: grade, subject: subject, title: title, text: text, imageRef: imageRef, viewCount: viewCount, answerCount: answerCount, imageCount: imageCount))
                     }
                 }
-                print("hey11")
                 DispatchQueue.main.async {
-                    print("hey22")
                     self.delegate?.updateUI()
                 }
-                
-                print("hey33")
             }
         }
     }

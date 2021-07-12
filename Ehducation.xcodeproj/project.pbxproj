@@ -99,11 +99,11 @@
 			children = (
 				F0C94A792676CF1100AAF074 /* WelcomeViewController.swift */,
 				F0AA696F26643E5D00C99227 /* QuestionsController.swift */,
+				F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */,
 				F0800A2C2669ACD800FEAD0E /* MyQuestionsViewController.swift */,
 				F0800A2E2669ACF000FEAD0E /* MyAnswersViewController.swift */,
-				F0495C1826716BBF00EF2F88 /* NewPostViewController.swift */,
-				F0AE15FB267D2BA400FF5D11 /* PostDetailViewController.swift */,
 				F0800A302669ACFC00FEAD0E /* MyPageViewController.swift */,
+				F0AE15FB267D2BA400FF5D11 /* PostDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
